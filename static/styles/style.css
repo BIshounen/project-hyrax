@@ -1,0 +1,63 @@
+:root {
+  --bg_dark: #0e1011;
+  --bg_dark_disable: #0e101144;
+  --bg_light: #1c2123;
+  --bg_light_disabled: #1c212344;
+  --text_body: #7d8b92;
+  --text_header: #ffffff;
+  --text_body_hover: #a3adb2;
+  --red_negative: #b65b5d;
+  --green_positive: #179a1e;
+}
+
+body {
+  background-color: var(--bg_dark);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  gap: 24px;
+
+}
+
+.device-card {
+  width: 430px;
+  border-radius: 12px;
+  border: none;
+  display: flex;
+  flex-flow: column nowrap;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  gap: 14px;
+}
+
+.device-card.enabled {
+  background-color: var(--bg_light);
+}
+
+.device-card.disabled {
+  background-color: var(--bg_light_disabled);
+}
+
+.device-card-header {
+  font-family: "Inter", serif;
+  font-weight: medium;
+  font-size: 24px;
+  color: var(--text_header);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0px 16px 0px 16px;
+}
+
+.device-card-image {
+  width: 100%;
+  min-height: fit-content;
+}
+
+.device-card-image-container {
+  height: 200px;
+  min-height: 200px;
+  max-height: 200px;
+  display: flex;
+  overflow: hidden;
+}

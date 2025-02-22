@@ -1,0 +1,1 @@
+rabbit_mq_url = 'amqp://username:token@cow.rmq2.cloudamqp.com/username'
