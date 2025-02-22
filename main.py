@@ -11,7 +11,7 @@ from mq_service import listener
 # rerun_thread = threading.Thread(target=start_rerun, daemon=True)
 # rerun_thread.start()
 
-devices = []
+devices = {}
 listener_thread = threading.Thread(target=lambda: listener(devices), daemon=True)
 listener_thread.start()
 
@@ -26,7 +26,8 @@ def index():
 
 @app.route('/rerun')
 def rerun():
-  device_id = request.args.get('device_id')
-  return f'<iframe src="https://app.rerun.io/version/0.22.0/index.html?url=ws://localhost:9877&recording_id={device_id}" style="border-style: none;width: 100%; height: 100%;"></iframe>'
+  port = request.args.get('port')
+  print(port)
+  return f'<iframe src="https://app.rerun.io/version/0.22.0/index.html?url=ws://localhost:{port}" style="border-style: none;width: 100%; height: 100%;"></iframe>'
 
 app.run()

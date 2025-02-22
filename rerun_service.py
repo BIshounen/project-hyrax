@@ -28,7 +28,7 @@ def log(message_json, objects_cache):
       rr.Points3D(radii=0.02, positions=box_centers, colors=[color]))
 
 
-def init(device_id, message_queue: queue):
+def init(device_id, message_queue: queue, devices):
 
   rr.new_recording(device_id, recording_id=device_id, spawn=False, make_thread_default=True)
   sock_ws = socket.socket()
@@ -36,6 +36,8 @@ def init(device_id, message_queue: queue):
   sock_ws_name = sock_ws.getsockname()[1]
   sock_ws.close()
   print(sock_ws_name)
+
+  devices[device_id] = sock_ws_name
 
   rr.serve_web(web_port=0, ws_port=sock_ws_name, open_browser=False)
 

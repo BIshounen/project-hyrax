@@ -35,11 +35,11 @@ function add_device_thumbnail(device_id, token, element) {
 
 async function create_card(container, device_name, device_id, token) {
     const card_anchor = document.createElement('a')
-    card_anchor.href = "/rerun?device_id=test"
     const card = document.createElement('div');
-    if(devices.includes(device_id)){
+    if(device_id in devices){
         card.className = 'device-card enabled';
-        console.log('device')
+        console.log(devices)
+        card_anchor.href = "/rerun?port=" + devices[device_id]
     } else {
         card.className = 'device-card disabled'
         console.log('no device')

@@ -10,12 +10,11 @@ def message_callback(ch, method, properties, body, message_queues, device_thread
   message_json = json.loads(body)
 
   device_id = message_json['device_id']
-  if device_id not in devices:
-    devices.append(device_id)
 
   if device_id not in device_threads:
     message_queues[device_id] = queue.Queue()
-    device_threads[device_id] = threading.Thread(target=lambda: init(device_id, message_queues[device_id]), daemon=True)
+    device_threads[device_id] = threading.Thread(
+      target=lambda: init(device_id, message_queues[device_id], devices), daemon=True)
 
     device_threads[device_id].start()
 
