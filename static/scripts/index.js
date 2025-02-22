@@ -79,10 +79,13 @@ function remove_card(container, device_id) {
 async function initResourcesUI(container, token) {
     site_id = await window.vms.auth.cloudSystemId();
 
+    existing_cameras = []
+
     const resourceAdded =
         resource => {
-            if (resource.type === 'camera') {
+            if (resource.type === 'camera' && !existing_cameras.includes(resource.id)) {
                 create_card(container, resource.name, resource.id, token);
+                existing_cameras.push(resource.id)
             }
         }
 

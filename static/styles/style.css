@@ -10,6 +10,10 @@
   --green_positive: #179a1e;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   background-color: var(--bg_dark);
   display: flex;
