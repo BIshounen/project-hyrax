@@ -1,15 +1,7 @@
 from flask import Flask, render_template, request
 import threading
-import subprocess
 
 from mq_service import listener
-
-
-# def start_rerun():
-#   subprocess.run(['rerun', '--serve-web'])
-
-# rerun_thread = threading.Thread(target=start_rerun, daemon=True)
-# rerun_thread.start()
 
 devices = {}
 listener_thread = threading.Thread(target=lambda: listener(devices), daemon=True)
