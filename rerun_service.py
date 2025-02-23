@@ -2,6 +2,7 @@ import rerun as rr
 import queue
 from collections import defaultdict
 import socket
+import rerun.blueprint as rrb
 
 
 def log(message_json, objects_cache):
@@ -20,18 +21,27 @@ def log(message_json, objects_cache):
 
     objects_cache[detected_object['type']].append(detected_object['object_id'])
 
-    box_centers = [detected_object['latitude']*1000, detected_object['longitude']*1000, 0.3]
-    color = (0, 255, 0) if detected_object['type'] == 'car' else (255, 0, 0)
+    if detected_object['type'] == 'car':
+      color = (0, 255, 0)
+    elif detected_object['type'] == 'bus':
+      color = (155, 155, 0)
+    else:
+      color = (155, 0, 0)
 
     rr.log(
       f"vehicles/{detected_object['type']}/{detected_object['object_id']}",
-      rr.Points3D(radii=0.02, positions=box_centers, colors=[color]))
+      rr.GeoPoints(lat_lon=[detected_object['latitude'],detected_object['longitude']],
+                   radii=rr.Radius.ui_points(10),
+                   colors=color
+                   )
+      )
 
 
 def init(device_id, message_queue: queue, devices):
 
   rr.new_recording(device_id, recording_id=device_id, spawn=False, make_thread_default=True)
   sock_ws = socket.socket()
+
   sock_ws.bind(('localhost', 0))
   sock_ws_name = sock_ws.getsockname()[1]
   sock_ws.close()

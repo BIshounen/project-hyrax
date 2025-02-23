@@ -1,8 +1,8 @@
 :root {
   --bg_dark: #0e1011;
   --bg_dark_disable: #0e101144;
-  --bg_light: #1c2123;
-  --bg_light_disabled: #1c212344;
+  --bg_light: #1F1F1F;
+  --bg_hover: #262626;
   --text_body: #7d8b92;
   --text_header: #ffffff;
   --text_body_hover: #a3adb2;
@@ -40,6 +40,10 @@ body {
 
 .device-card.disabled {
   background-color: var(--bg_light_disabled);
+}
+
+.device-card.enabled:hover{
+  background-color: var(--bg_hover);
 }
 
 .device-card-header {
