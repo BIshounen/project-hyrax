@@ -22,4 +22,4 @@ def rerun():
   print(port)
   return f'<iframe src="https://app.rerun.io/version/0.22.0/index.html?url=ws://localhost:{port}" style="border-style: none;width: 100%; height: 100%;"></iframe>'
 
-app.run()
+app.run(port=8000)

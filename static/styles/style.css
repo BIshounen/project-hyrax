@@ -1,6 +1,6 @@
 :root {
   --bg_dark: #0e1011;
-  --bg_dark_disable: #0e101144;
+  --bg_light_disabled: #1F1F1F55;
   --bg_light: #1F1F1F;
   --bg_hover: #262626;
   --text_body: #7d8b92;
@@ -8,10 +8,6 @@
   --text_body_hover: #a3adb2;
   --red_negative: #b65b5d;
   --green_positive: #179a1e;
-}
-
-a {
-  text-decoration: none;
 }
 
 body {
@@ -36,6 +32,7 @@ body {
 
 .device-card.enabled {
   background-color: var(--bg_light);
+  cursor: pointer;
 }
 
 .device-card.disabled {
@@ -68,4 +65,48 @@ body {
   max-height: 200px;
   display: flex;
   overflow: hidden;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+}
+
+.device-card-footer {
+  padding: 0px 16px 0px 16px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.device-card-footer-buttons-container{
+  display: flex;
+  flex-flow: row nowrap;
+
+}
+
+.button {
+  border: solid;
+  border-width: 1px;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  display: flex;
+  cursor: pointer;
+}
+
+.button.idle {
+  border-color: var(--text_body);
+}
+
+.button.hovered{
+  border-color: var(--text_body_hover)
+}
+
+
+.button-icon {
+  width: 24px;
+  height: 24px;
+  margin: auto;
 }

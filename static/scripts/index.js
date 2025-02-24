@@ -32,17 +32,52 @@ function add_device_thumbnail(device_id, token, element) {
 
 }
 
+function create_icon(parent_element, icon_path){
+    icon = document.createElement('img')
+    icon.className = 'icon'
+    icon.src = icon_path
+    parent_element.appendChild(icon)
+}
+
+function create_button(parent_element, onclick_function, icon_path){
+    button = document.createElement('div')
+    button.onclick = onclick_function
+    button.className = 'button idle'
+
+    icon = document.createElement('img')
+    icon.className = 'button-icon'
+    icon.src = icon_path
+    button.appendChild(icon)
+
+    button.onmouseover = (e) => {
+        button.className = 'button hovered';
+        if (!e) var e = window.event;
+            e.cancelBubble = true;
+            if (e.stopPropagation) e.stopPropagation();
+            console.log('im hovered')
+    }
+    button.onmouseleave = (e) => {
+        button.className = 'button idle';
+        if (!e) var e = window.event;
+            e.cancelBubble = true;
+            if (e.stopPropagation) e.stopPropagation();
+    }
+
+    parent_element.appendChild(button)
+}
+
 
 async function create_card(container, device_name, device_id, token) {
-    const card_anchor = document.createElement('a')
     const card = document.createElement('div');
     if(device_id in devices){
         card.className = 'device-card enabled';
         console.log(devices)
-        card_anchor.href = "/rerun?port=" + devices[device_id]
+        card.onclick = () => location.href = "/rerun?port=" + devices[device_id];
+        icon_path = '/static/icons/has_data.svg'
     } else {
         card.className = 'device-card disabled'
         console.log('no device')
+        icon_path = '/static/icons/no_data.svg'
     }
     card.setAttribute("id", device_id);
 
@@ -60,14 +95,30 @@ async function create_card(container, device_name, device_id, token) {
 
     const card_footer = document.createElement('div');
     card_footer.className = 'device-card-footer';
-    card_footer.innerText = 'footer';
 
-    card_anchor.appendChild(card)
+    create_icon(card_footer, icon_path)
+
+    const buttons_container = document.createElement('div');
+    buttons_container.className = 'device-card-footer-buttons-container';
+    const on_click_function = (e) => {
+        if (!e) var e = window.event;
+        e.cancelBubble = true;
+        if (e.stopPropagation) e.stopPropagation();
+        window.vms.tab.addItem(device_id, {});
+    };
+    create_button(
+        buttons_container,
+        on_click_function,
+        '/static/icons/camera_icon.svg'
+    )
+    card_footer.appendChild(buttons_container);
+
+
     card.appendChild(card_title);
     card.appendChild(card_image_container);
     card.appendChild(card_footer);
 
-    container.appendChild(card_anchor);
+    container.appendChild(card);
 }
 
 function remove_card(container, device_id) {
