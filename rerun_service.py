@@ -2,7 +2,6 @@ import rerun as rr
 import queue
 from collections import defaultdict
 import socket
-import rerun.blueprint as rrb
 
 
 def log(message_json, objects_cache):
