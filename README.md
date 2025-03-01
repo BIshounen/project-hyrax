@@ -1,4 +1,4 @@
-![hyrax.png](https://github.com/BIshounen/project-hyrax/blob/main/readme_images/hyrax.png?raw=true)
+![hyrax.jpg](https://github.com/BIshounen/project-hyrax/blob/main/readme_images/hyrax.jpg?raw=true)
 
 # Hyrax Integration with Nx VMS
 
