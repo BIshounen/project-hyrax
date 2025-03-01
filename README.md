@@ -13,7 +13,7 @@ The integration allows receiving data from the post-processor for the AI Manager
 
 - RabbitMQ reference: [RabbitMQ](https://www.rabbitmq.com/)
 - Rerun.io reference: [Rerun.io](https://www.rerun.io/)
-- Video guide: https://youtu.be/uEuA9EaeKI4
+- Video guide: [Youtube](https://youtu.be/uEuA9EaeKI4)
 ---
 ## Installation Guide
 
