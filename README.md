@@ -1,6 +1,7 @@
 <p align="center">
    <img src="https://github.com/BIshounen/project-hyrax/blob/main/readme_images/hyrax.jpg?raw=true">
 </p>
+
 # Hyrax Integration with Nx VMS
 
 Project Hyrax is a web-based integration with a server written on Python that collects and visualizes geographic data within the Network Optix Desktop client. This tool was developed for the Network Optix hackathon to demonstrate advanced capabilities in video analytics.
