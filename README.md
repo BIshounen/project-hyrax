@@ -48,3 +48,9 @@ The project leverages several key components of the Network Optix ecosystem:
 - **Custom Post-Processor** - Converts bounding box coordinates to latitude/longitude
 - **JavaScript API** - Manages devices and layout integration within the Nx Desktop client
 - [**rerun.io**](http://rerun.io) - Provides the visualization layer for geographic data
+
+Overall scheme of the project is provided below
+
+<p align="center">
+   <img src="https://github.com/BIshounen/project-hyrax/blob/main/readme_images/scheme.png?raw=true">
+</p>
