@@ -1,12 +1,10 @@
-
-![hyrax.png](https://github.com/BIshounen/projectHyrax/blob/main/readme_images/hyrax.png?raw=true)
+![hyrax.png](https://github.com/BIshounen/project-hyrax/blob/main/readme_images/hyrax.png?raw=true)
 
 # Hyrax Integration with Nx VMS
 
 Project Hyrax is a web-based integration with a server written on Python that collects and visualizes geographic data within the Network Optix Desktop client. This tool was developed for the Network Optix hackathon to demonstrate advanced capabilities in video analytics.
 
 ---
-
 ## Overview
 
 The integration allows receiving data from the post-processor for the AI Manager (available here: [AI Manager Repository](https://github.com/BIshounen/sclbl-integration-sdk)) via **RabbitMQ** and visualizing it using **Rerun.io**.
