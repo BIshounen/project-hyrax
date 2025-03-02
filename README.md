@@ -23,6 +23,7 @@ The integration allows receiving data from the post-processor for the AI Manager
 2. Clone this repository
 3. Install all requirements using pip
 3. Add a configuration file `config.py`, specifying the RabbitMQ server address, see `config.py.example` for a reference
+   4. For simplicity it's recommended to use hosted RabbitMQ servers, such as [CloudAMQP](https://www.cloudamqp.com/) that has a free tier, suitable for demo and introduction testing.
 3. Start the AI Manager and post-processor
 4. Run this integration server
 5. Add the integration to **Nx VMS** (Menu -> Add -> Integration), use the address where this service is running
